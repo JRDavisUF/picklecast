@@ -687,6 +687,7 @@ def run(*, port, host, base_dir, certificate, local,
         srv = await asyncio.start_server(server.handle,
                                          host,
                                          port,
+                                         family=socket.AF_INET,
                                          ssl=ssl_context)
         async with srv:
             await srv.serve_forever()
